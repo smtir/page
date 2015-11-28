@@ -1,0 +1,233 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,600);
+@import url(http://fonts.googleapis.com/css?family=Fjalla+One); 
+body {
+    background: #f3f3f3 url(../img/bg.png) repeat;
+    color: #0099e5;
+    font-family: "Fjalla One";
+    font-size: 15px;
+    @include display(flex);
+  @include align-content(center);
+}
+a {
+
+}
+#wrap {
+	width: 70%;
+    margin: 40px auto;
+    background: #fff;
+    padding: 0;
+    -webkit-box-shadow: -5px -4px 8px 0px rgba(50, 50, 50, 0.93);
+    -moz-box-shadow: -5px -4px 8px 0px rgba(50, 50, 50, 0.93);
+    box-shadow: -5px -4px 8px 0px rgba(50, 50, 50, 0.93);
+}
+h2.title:before {
+    position: relative;
+    left: -75px;
+    /*top: 30px;*/
+    font-family: FontAwesome;
+    font-size: 35px;
+    content: "\f21b";
+}
+section#title {
+    margin: 0;
+    padding: 10px;
+}
+h2.title {
+    font-size: 30px;
+    text-transform: uppercase;
+    line-height: 10px;
+}
+p.desig {
+    text-transform: lowercase;
+    padding-left: 10px;
+    font-size: 18px;
+}
+.desc p {
+margin: 30px 40px 0 40px;
+    padding: 30px;
+    font-weight: 400;
+    font-size: 15px;
+    font-family: Open Sans;
+    color: #000;
+    background: #F3F3F3;
+    border: 1px solid #f3f3f3;
+    border-radius: 8px;
+}
+section#skills {
+    margin: 0;
+    padding: 10px;
+}
+h2.skills {
+    font-size: 30px;
+    text-transform: uppercase;
+    line-height: 10px;
+}
+h2.skills:before {
+    position: relative;
+    left: -75px;
+    /*top: 250px;*/
+    font-family: FontAwesome;
+    font-size: 35px;
+    content: "\f0ad";
+}
+.pro {
+list-style: none;
+    clear: both;
+    margin: 25px 0 0 0;
+}
+.skill_back {
+    background: #0099e5;
+    padding: 5px 10px;
+    color: #fff;
+    margin: 5px 0;
+}
+.html5 {
+    width: 90%;
+}
+.css {
+    width: 80%;
+}
+.php {
+    width: 50%;
+}
+.wp {
+    width: 70%;
+}
+section#exp {
+    margin: 0;
+    padding: 10px;
+}
+h2.exp {
+    font-size: 30px;
+    text-transform: uppercase;
+    line-height: 10px;
+}
+h2.exp:before {
+    position: relative;
+    left: -75px;
+    /*top: 465px;*/
+    font-family: FontAwesome;
+    font-size: 35px;
+    content: "\f0f2";
+}
+.exp_company {
+    clear: both;
+    margin: 25px 0 0 0;
+    padding: 5px 10px;
+}
+.exp_company .company_name {
+
+}
+.exp_company .company_name h2 {
+    line-height: 15px;
+}
+.exp_company .company_name p {
+    margin: 0;
+    line-height: 15px;
+    padding-left: 20px;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 5px;
+}
+.exp_company .company_name em {
+    line-height: 15px;
+    padding-left: 20px;
+    font-style: italic;
+}
+.exp_company .company_desc p {
+    text-align: justify;
+    margin: 0;
+    padding: 0;
+}
+
+section#edu {
+    margin: 0;
+    padding: 10px;
+}
+h2.edu {
+    font-size: 30px;
+    text-transform: uppercase;
+    line-height: 10px;
+}
+h2.edu:before {
+    position: relative;
+    left: -75px;
+    /*top: 465px;*/
+    font-family: FontAwesome;
+    font-size: 35px;
+    content: "\f19d";
+}
+.edu_institue {
+    clear: both;
+    margin: 25px 0 0 0;
+    padding: 5px 10px;
+}
+.edu_institue .edu_institue_name {
+
+}
+.edu_institue .edu_institue_name h2 {
+    line-height: 15px;
+}
+.edu_institue .edu_institue_name p {
+    margin: 0;
+    line-height: 15px;
+    padding-left: 20px;
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 5px;
+}
+.edu_institue .edu_institue_name em {
+    line-height: 15px;
+    padding-left: 20px;
+    font-style: italic;
+}
+.edu_institue .edu_institue_desc p {
+    text-align: justify;
+    margin: 0;
+    padding: 0;
+}
+section#contact {
+    margin: 0;
+    padding: 10px;
+}
+h2.contact {
+    font-size: 30px;
+    text-transform: uppercase;
+    line-height: 10px;
+}
+h2.contact:before {
+    position: relative;
+    left: -75px;
+    /*top: 250px;*/
+    font-family: FontAwesome;
+    font-size: 35px;
+    content: "\f1d8";
+}
+.contact_form input[type="email"] , input[type="text"], input[type="tel"] {
+    width: 100%;
+    margin: 0px 0 5px -10px;
+    padding: 10px 15px;
+}
+.contact_form textarea {
+    width: 100%;
+    margin: 0px 0 5px -10px;
+    padding: 10px 15px;
+    height: 120px;
+}
+.contact_form button {
+    width: 100%;
+    margin: 0px 0 5px -10px;
+    padding: 10px 15px;
+}
+section#footer {
+    margin: 0;
+    padding: 10px;
+}
+section#footer p {
+	margin: 0;
+    padding: 0;
+    text-align: center;
+}
+section#footer p a {
+	color: #00405d;
+}
