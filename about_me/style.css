@@ -20,6 +20,13 @@ a {
     -moz-box-shadow: -5px -4px 8px 0px rgba(50, 50, 50, 0.93);
     box-shadow: -5px -4px 8px 0px rgba(50, 50, 50, 0.93);
 }
+
+/* 
+
+    Title Section 
+
+*/
+
 h2.title:before {
     position: relative;
     left: -60px;
@@ -94,6 +101,13 @@ p.desig {
     rgb(237, 237, 237) 19px 19px,
     rgb(238, 238, 238) 20px 20px;
 }
+
+/* 
+
+    Skill Section 
+
+*/
+
 section#skills {
     margin: 0;
     padding: 10px;
@@ -115,6 +129,13 @@ h2.skills:before {
 .skill {
   margin: 0 20px;
 }
+
+/* 
+
+    Experience Section 
+
+*/
+
 section#exp {
     margin: 0;
     padding: 10px;
@@ -163,6 +184,12 @@ h2.exp:before {
     font-family: Open Sans;
 }
 
+/* 
+
+    Education Section 
+
+*/
+
 section#edu {
     margin: 0;
     padding: 10px;
@@ -210,6 +237,13 @@ h2.edu:before {
     font-size: 16px;
     font-family: Open Sans;
 }
+
+/* 
+
+    Footer Section 
+
+*/
+
 section#footer {
     margin: 0;
     padding: 10px;
@@ -224,43 +258,3 @@ section#footer p {
 section#footer p a {
 	color: #00405d;
 }
-.skill_single_progress {
-    clear: both;
-    margin: 5px 0 5px 40px;
-}
-.skill_progress_bar_container {
-  -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    width: 100%;
-    background: #E0E0E0;
-}
-
-.skill_progress_bar {
-  -moz-box-sizing: content-box;
-    -webkit-box-sizing: content-box;
-    box-sizing: content-box;
-    background: #0099E5;
-    padding: 5px 10px;
-    color: #fff;
-}
-.skill_contentx {
-
-}
-.skiLL_percent {
-  float: right;
-}
-@keyframes bounceIn {
-  0% {
-    transform: scale(0.1);
-    opacity: 0;
-  }
-  60% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
