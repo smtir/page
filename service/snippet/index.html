@@ -1,0 +1,338 @@
+<html>
+<head>
+<title>Snippet PHP Code</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/default.min.css">
+<link rel="stylesheet" href="css/nav.css">
+</head>
+<body>
+<div class="wrap">
+<div class="head">
+<h2>Snippet PHP Code</h2>
+<p>Lot of Source</p>
+</div> <!-- End: Head -->
+<div class="nav">
+<ul id="navs">
+	<li><a href="#">.htaccess</a>
+		<ul>
+			<li><a href="#htaccess">.htaccess</a></li>
+			<li><a href="#old">Old .html to wordpress post name</a></li>
+		</ul>
+	</li>
+	<li><a href="#">Function.php</a>
+		<ul>
+			<li><a href="#limit">Limit Content</a></li>
+			<li><a href="#define">Define Directory</a></li>
+			<li><a href="#check">Function Check</a></li>
+			<li><a href="#custom">Custom Function</a></li>
+			<li><a href="#unwanted">Remove unwanted items</a></li>
+		</ul>
+	</li>
+	<li><a href="#">PHP File</a>
+		<ul>
+			<li><a href="#custom_footer">Customize admin footer text</a></li>
+			<li><a href="#php_css">PHP CSS</a></li>
+			<li><a href="#php">Themes Option Using PHP File</a></li>
+			<li><a href="#php2">Themes Option Using Functions</a></li>
+			<li><a href="#title">Dynamic title</a></li>
+			<li><a href="#multi">Multi Dropdown</a></li>
+		</ul>
+	</li>
+</ul>
+</div>
+<div class="content">
+
+<div class="post">
+<h2><a name="old"></a>Old .html to wordpress post name</h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_html snippet-formatted sh_sourceCode"><ol class="snippet-num"><li># BEGIN WordPress</li><li><span class="sh_keyword">&lt;IfModule</span> <span class="sh_type">mod_rewrite.c</span><span class="sh_keyword">&gt;</span></li><li>RewriteEngine On</li><li>RewriteBase /</li><li>RewriteRule (.+)\.html?$ http://www.example.com/$1/ [R=301,L]</li><li>RewriteRule ^index\.php$ - [L]</li><li>RewriteCond %{REQUEST_FILENAME} !-f</li><li>RewriteCond %{REQUEST_FILENAME} !-d</li><li>RewriteRule . /index.php [L]</li><li><span class="sh_keyword">&lt;/IfModule&gt;</span></li><li># END WordPress</li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable=""># BEGIN WordPress
+&lt;IfModule mod_rewrite.c&gt;
+RewriteEngine On
+RewriteBase /
+RewriteRule (.+)\.html?$ http://www.example.com/$1/ [R=301,L]
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+&lt;/IfModule&gt;
+# END WordPress</pre></div></div>
+</div>
+
+<div class="post">
+<h2><a name="limit"></a>Limit Content</h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_php snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_keyword">function</span> <span class="sh_function">excerpt</span><span class="sh_symbol">(</span><span class="sh_variable">$limit</span><span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>  <span class="sh_variable">$excerpt</span> <span class="sh_symbol">=</span> <span class="sh_function">explode</span><span class="sh_symbol">(</span><span class="sh_string">' '</span><span class="sh_symbol">,</span> <span class="sh_function">get_the_excerpt</span><span class="sh_symbol">(),</span> <span class="sh_variable">$limit</span><span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">if</span> <span class="sh_symbol">(</span><span class="sh_function">count</span><span class="sh_symbol">(</span><span class="sh_variable">$excerpt</span><span class="sh_symbol">)&gt;=</span><span class="sh_variable">$limit</span><span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>    <span class="sh_function">array_pop</span><span class="sh_symbol">(</span><span class="sh_variable">$excerpt</span><span class="sh_symbol">);</span></li><li>    <span class="sh_variable">$excerpt</span> <span class="sh_symbol">=</span> <span class="sh_function">implode</span><span class="sh_symbol">(</span><span class="sh_string">" "</span><span class="sh_symbol">,</span><span class="sh_variable">$excerpt</span><span class="sh_symbol">).</span><span class="sh_string">'...'</span><span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span> <span class="sh_keyword">else</span> <span class="sh_cbracket">{</span></li><li>    <span class="sh_variable">$excerpt</span> <span class="sh_symbol">=</span> <span class="sh_function">implode</span><span class="sh_symbol">(</span><span class="sh_string">" "</span><span class="sh_symbol">,</span><span class="sh_variable">$excerpt</span><span class="sh_symbol">);</span></li><li>  <span class="sh_cbracket">}</span>&nbsp;&nbsp;&nbsp;&nbsp;</li><li>  <span class="sh_variable">$excerpt</span> <span class="sh_symbol">=</span> <span class="sh_function">preg_replace</span><span class="sh_symbol">(</span><span class="sh_string">'`\[[^\]]*\]`'</span><span class="sh_symbol">,</span><span class="sh_string">''</span><span class="sh_symbol">,</span><span class="sh_variable">$excerpt</span><span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">return</span> <span class="sh_variable">$excerpt</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li> </li><li><span class="sh_keyword">function</span> <span class="sh_function">content</span><span class="sh_symbol">(</span><span class="sh_variable">$limit</span><span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>  <span class="sh_variable">$content</span> <span class="sh_symbol">=</span> <span class="sh_function">explode</span><span class="sh_symbol">(</span><span class="sh_string">' '</span><span class="sh_symbol">,</span> <span class="sh_function">get_the_content</span><span class="sh_symbol">(),</span> <span class="sh_variable">$limit</span><span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">if</span> <span class="sh_symbol">(</span><span class="sh_function">count</span><span class="sh_symbol">(</span><span class="sh_variable">$content</span><span class="sh_symbol">)&gt;=</span><span class="sh_variable">$limit</span><span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>    <span class="sh_function">array_pop</span><span class="sh_symbol">(</span><span class="sh_variable">$content</span><span class="sh_symbol">);</span></li><li>    <span class="sh_variable">$content</span> <span class="sh_symbol">=</span> <span class="sh_function">implode</span><span class="sh_symbol">(</span><span class="sh_string">" "</span><span class="sh_symbol">,</span><span class="sh_variable">$content</span><span class="sh_symbol">).</span><span class="sh_string">'...'</span><span class="sh_symbol">;</span></li><li>  <span class="sh_cbracket">}</span> <span class="sh_keyword">else</span> <span class="sh_cbracket">{</span></li><li>    <span class="sh_variable">$content</span> <span class="sh_symbol">=</span> <span class="sh_function">implode</span><span class="sh_symbol">(</span><span class="sh_string">" "</span><span class="sh_symbol">,</span><span class="sh_variable">$content</span><span class="sh_symbol">);</span></li><li>  <span class="sh_cbracket">}</span>&nbsp;&nbsp;&nbsp;&nbsp;</li><li>  <span class="sh_variable">$content</span> <span class="sh_symbol">=</span> <span class="sh_function">preg_replace</span><span class="sh_symbol">(</span><span class="sh_string">'/\[.+\]/'</span><span class="sh_symbol">,</span><span class="sh_string">''</span><span class="sh_symbol">,</span> <span class="sh_variable">$content</span><span class="sh_symbol">);</span></li><li>  <span class="sh_variable">$content</span> <span class="sh_symbol">=</span> <span class="sh_function">apply_filters</span><span class="sh_symbol">(</span><span class="sh_string">'the_content'</span><span class="sh_symbol">,</span> <span class="sh_variable">$content</span><span class="sh_symbol">);</span> </li><li>  <span class="sh_variable">$content</span> <span class="sh_symbol">=</span> <span class="sh_function">str_replace</span><span class="sh_symbol">(</span><span class="sh_string">']]&gt;'</span><span class="sh_symbol">,</span> <span class="sh_string">']]&amp;gt;'</span><span class="sh_symbol">,</span> <span class="sh_variable">$content</span><span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">return</span> <span class="sh_variable">$content</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_comment">// Usage Content limit</span></li><li><span class="sh_symbol">&lt;?php</span> <span class="sh_keyword">echo</span> <span class="sh_function">excerpt</span><span class="sh_symbol">(</span><span class="sh_number">25</span><span class="sh_symbol">);</span> <span class="sh_symbol">?&gt;</span></li><li><span class="sh_symbol">&lt;?php</span> <span class="sh_keyword">echo</span> <span class="sh_function">content</span><span class="sh_symbol">(</span><span class="sh_number">25</span><span class="sh_symbol">);</span> <span class="sh_symbol">?&gt;</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">function excerpt($limit) {
+  $excerpt = explode(' ', get_the_excerpt(), $limit);
+  if (count($excerpt)&gt;=$limit) {
+    array_pop($excerpt);
+    $excerpt = implode(" ",$excerpt).'...';
+  } else {
+    $excerpt = implode(" ",$excerpt);
+  }	
+  $excerpt = preg_replace('`\[[^\]]*\]`','',$excerpt);
+  return $excerpt;
+}
+ 
+function content($limit) {
+  $content = explode(' ', get_the_content(), $limit);
+  if (count($content)&gt;=$limit) {
+    array_pop($content);
+    $content = implode(" ",$content).'...';
+  } else {
+    $content = implode(" ",$content);
+  }	
+  $content = preg_replace('/\[.+\]/','', $content);
+  $content = apply_filters('the_content', $content); 
+  $content = str_replace(']]&gt;', ']]&amp;gt;', $content);
+  return $content;
+}
+
+// Usage Content limit
+&lt;?php echo excerpt(25); ?&gt;
+&lt;?php echo content(25); ?&gt;</pre></div></div>
+</div>
+
+<div class="post">
+<h2><a name="define"></a>Define Directory</h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_php snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_function">define</span><span class="sh_symbol">(</span><span class="sh_string">'THEMEXXX'</span><span class="sh_symbol">,</span> <span class="sh_function">get_template_directory_uri</span><span class="sh_symbol">().</span><span class="sh_string">'/js/'</span><span class="sh_symbol">);</span></li><li></li><li><span class="sh_function">wp_enqueue_script</span><span class="sh_symbol">(</span><span class="sh_string">'some_class'</span><span class="sh_symbol">,</span>THEMEXXX<span class="sh_symbol">.</span><span class="sh_string">'xxx.js'</span><span class="sh_symbol">,</span><span class="sh_keyword">array</span><span class="sh_symbol">(),</span><span class="sh_string">'1.0'</span><span class="sh_symbol">,</span>true<span class="sh_symbol">);</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">define('THEMEXXX', get_template_directory_uri().'/js/');
+
+wp_enqueue_script('some_class',THEMEXXX.'xxx.js',array(),'1.0',true);</pre></div></div>
+</div>
+
+<div class="post">
+<h2><a name="check"></a>Function Check</h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_php snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_keyword">if</span><span class="sh_symbol">(!</span><span class="sh_function">function_exists</span><span class="sh_symbol">(</span><span class="sh_string">'xxx'</span><span class="sh_symbol">)):</span></li><li></li><li>  <span class="sh_keyword">function</span> <span class="sh_function">xxx</span><span class="sh_symbol">()</span></li><li>  <span class="sh_cbracket">{</span></li><li>    <span class="sh_keyword">if</span><span class="sh_symbol">(</span><span class="sh_function">is_admin</span><span class="sh_symbol">())</span></li><li>    <span class="sh_cbracket">{</span></li><li>      <span class="sh_comment">// Function goes to here</span></li><li>    <span class="sh_cbracket">}</span></li><li>  <span class="sh_cbracket">}</span></li><li></li><li>  <span class="sh_function">add_action</span><span class="sh_symbol">(</span><span class="sh_string">'admin_enqueue_scripts'</span><span class="sh_symbol">,</span><span class="sh_string">'xxx'</span><span class="sh_symbol">);</span></li><li></li><li><span class="sh_keyword">endif</span><span class="sh_symbol">;</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">if(!function_exists('xxx')):
+
+  function xxx()
+  {
+    if(is_admin())
+    {
+      // Function goes to here
+    }
+  }
+
+  add_action('admin_enqueue_scripts','xxx');
+
+endif;</pre></div></div>
+</div>
+
+<div class="post">
+<h2><a name="custom"></a>Custom Function</h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_php snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_keyword">function</span> <span class="sh_function">custom_function</span> <span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><li>    <span class="sh_keyword">echo</span> <span class="sh_string">'XXXXX'</span><span class="sh_symbol">;</span></li><li>    <span class="sh_keyword">echo</span> <span class="sh_string">'XXXXX'</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_function">add_action</span><span class="sh_symbol">(</span><span class="sh_string">'wp_head'</span><span class="sh_symbol">,</span> <span class="sh_string">'custom_function'</span><span class="sh_symbol">);</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">function custom_function () {
+    echo 'XXXXX';
+    echo 'XXXXX';
+}
+add_action('wp_head', 'custom_function');</pre></div></div>
+</div>
+
+<div class="post">
+<h2><a name="unwanted"></a>Remove unwanted items</h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_php snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_function">remove_action</span><span class="sh_symbol">(</span> <span class="sh_string">'wp_head'</span><span class="sh_symbol">,</span> <span class="sh_string">'wp_shortlink_wp_head'</span><span class="sh_symbol">,</span> <span class="sh_number">10</span><span class="sh_symbol">,</span> <span class="sh_number">0</span><span class="sh_symbol">);</span> <span class="sh_comment">// Display the links to the shortlink</span></li><li><span class="sh_function">remove_action</span><span class="sh_symbol">(</span> <span class="sh_string">'wp_head'</span><span class="sh_symbol">,</span> <span class="sh_string">'rel_canonical'</span><span class="sh_symbol">);</span> <span class="sh_comment">// Display the links to the canonical link</span></li><li><span class="sh_function">remove_action</span><span class="sh_symbol">(</span> <span class="sh_string">'wp_head'</span><span class="sh_symbol">,</span> <span class="sh_string">'feed_links_extra'</span><span class="sh_symbol">,</span> <span class="sh_number">3</span><span class="sh_symbol">);</span> <span class="sh_comment">// Display the links to the extra feeds such as category feeds</span></li><li><span class="sh_function">remove_action</span><span class="sh_symbol">(</span> <span class="sh_string">'wp_head'</span><span class="sh_symbol">,</span> <span class="sh_string">'feed_links'</span><span class="sh_symbol">,</span> <span class="sh_number">2</span><span class="sh_symbol">);</span> <span class="sh_comment">// Display the links to the general feeds: Post and Comment Feed</span></li><li><span class="sh_function">remove_action</span><span class="sh_symbol">(</span> <span class="sh_string">'wp_head'</span><span class="sh_symbol">,</span> <span class="sh_string">'rsd_link'</span><span class="sh_symbol">);</span> <span class="sh_comment">// Display the link to the Really Simple Discovery service endpoint, EditURI link</span></li><li><span class="sh_function">remove_action</span><span class="sh_symbol">(</span> <span class="sh_string">'wp_head'</span><span class="sh_symbol">,</span> <span class="sh_string">'wlwmanifest_link'</span> <span class="sh_symbol">);</span> <span class="sh_comment">// Display the link to the Windows Live Writer manifest file.</span></li><li><span class="sh_function">remove_action</span><span class="sh_symbol">(</span> <span class="sh_string">'wp_head'</span><span class="sh_symbol">,</span> <span class="sh_string">'index_rel_link'</span> <span class="sh_symbol">);</span> <span class="sh_comment">// index link</span></li><li><span class="sh_function">remove_action</span><span class="sh_symbol">(</span> <span class="sh_string">'wp_head'</span><span class="sh_symbol">,</span> <span class="sh_string">'parent_post_rel_link'</span><span class="sh_symbol">);</span> <span class="sh_comment">// prev link</span></li><li><span class="sh_function">remove_action</span><span class="sh_symbol">(</span> <span class="sh_string">'wp_head'</span><span class="sh_symbol">,</span> <span class="sh_string">'start_post_rel_link'</span><span class="sh_symbol">);</span> <span class="sh_comment">// start link</span></li><li><span class="sh_function">remove_action</span><span class="sh_symbol">(</span> <span class="sh_string">'wp_head'</span><span class="sh_symbol">,</span> <span class="sh_string">'adjacent_posts_rel_link_wp_head'</span><span class="sh_symbol">,</span> <span class="sh_number">10</span><span class="sh_symbol">,</span> <span class="sh_number">0</span><span class="sh_symbol">);</span> <span class="sh_comment">// Display relational links for the posts adjacent to the current post.</span></li><li><span class="sh_function">remove_action</span><span class="sh_symbol">(</span> <span class="sh_string">'wp_head'</span><span class="sh_symbol">,</span> <span class="sh_string">'wp_generator'</span><span class="sh_symbol">);</span> <span class="sh_comment">// Display the XHTML generator that is generated on the wp_head hook, WP version&nbsp;&nbsp;&nbsp;&nbsp;</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">remove_action( 'wp_head', 'wp_shortlink_wp_head', 10, 0); // Display the links to the shortlink
+remove_action( 'wp_head', 'rel_canonical'); // Display the links to the canonical link
+remove_action( 'wp_head', 'feed_links_extra', 3); // Display the links to the extra feeds such as category feeds
+remove_action( 'wp_head', 'feed_links', 2); // Display the links to the general feeds: Post and Comment Feed
+remove_action( 'wp_head', 'rsd_link'); // Display the link to the Really Simple Discovery service endpoint, EditURI link
+remove_action( 'wp_head', 'wlwmanifest_link' ); // Display the link to the Windows Live Writer manifest file.
+remove_action( 'wp_head', 'index_rel_link' ); // index link
+remove_action( 'wp_head', 'parent_post_rel_link'); // prev link
+remove_action( 'wp_head', 'start_post_rel_link'); // start link
+remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0); // Display relational links for the posts adjacent to the current post.
+remove_action( 'wp_head', 'wp_generator'); // Display the XHTML generator that is generated on the wp_head hook, WP version	</pre></div></div>
+</div>
+
+<div class="post">
+<h2><a name="custom_footer"></a>Customize admin footer text</h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_php snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_keyword">function</span> <span class="sh_function">custom_admin_footer</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><li>        <span class="sh_keyword">echo</span> <span class="sh_string">'&lt;p&gt;Example&lt;/p&gt;'</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span> </li><li><span class="sh_function">add_filter</span><span class="sh_symbol">(</span><span class="sh_string">'admin_footer_text'</span><span class="sh_symbol">,</span> <span class="sh_string">'custom_admin_footer'</span><span class="sh_symbol">);</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">function custom_admin_footer() {
+        echo '&lt;p&gt;Example&lt;/p&gt;';
+} 
+add_filter('admin_footer_text', 'custom_admin_footer');</pre></div></div>
+</div>
+
+<div class="post">
+<h2><a name="php_css"></a>PHP CSS</h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_php snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_symbol">&lt;?php</span></li><li><span class="sh_function">header</span><span class="sh_symbol">(</span><span class="sh_string">'Content-type: text/css'</span><span class="sh_symbol">);</span></li><li></li><li><span class="sh_variable">$parse_uri</span> <span class="sh_symbol">=</span> <span class="sh_function">explode</span><span class="sh_symbol">(</span><span class="sh_string">'wp-content'</span><span class="sh_symbol">,</span> <span class="sh_variable">$_SERVER</span><span class="sh_symbol">[</span><span class="sh_string">'SCRIPT_FILENAME'</span><span class="sh_symbol">]);</span></li><li><span class="sh_variable">$wp_load</span> <span class="sh_symbol">=</span> <span class="sh_variable">$parse_uri</span><span class="sh_symbol">[</span><span class="sh_number">0</span><span class="sh_symbol">].</span><span class="sh_string">'wp-load.php'</span><span class="sh_symbol">;</span></li><li><span class="sh_preproc">require_once</span><span class="sh_symbol">(</span><span class="sh_variable">$wp_load</span><span class="sh_symbol">);</span></li><li><span class="sh_symbol">?&gt;</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">&lt;?php
+header('Content-type: text/css');
+
+$parse_uri = explode('wp-content', $_SERVER['SCRIPT_FILENAME']);
+$wp_load = $parse_uri[0].'wp-load.php';
+require_once($wp_load);
+?&gt;</pre></div></div>
+</div>
+
+<div class="post">
+<h2><a name="php"></a>Themes Option Using PHP File</h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_php snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_keyword">global</span> <span class="sh_variable">$smof_data</span><span class="sh_symbol">;</span></li><li><span class="sh_variable">$output</span> <span class="sh_symbol">=</span> <span class="sh_string">''</span><span class="sh_symbol">;</span></li><li></li><li><span class="sh_keyword">if</span><span class="sh_symbol">(</span><span class="sh_keyword">isset</span><span class="sh_symbol">(</span><span class="sh_variable">$smof_data</span><span class="sh_symbol">[</span><span class="sh_string">'body_bg'</span><span class="sh_symbol">])):</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_variable">$output</span> <span class="sh_symbol">.=</span> <span class="sh_string">'body{ background: '</span><span class="sh_symbol">.</span><span class="sh_variable">$smof_data</span><span class="sh_symbol">[</span><span class="sh_string">'body_bg'</span><span class="sh_symbol">]</span> <span class="sh_symbol">.</span><span class="sh_string">'; }'</span><span class="sh_symbol">;</span></li><li><span class="sh_keyword">endif</span><span class="sh_symbol">;</span></li><li></li><li><span class="sh_keyword">echo</span> <span class="sh_variable">$output</span><span class="sh_symbol">;</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">global $smof_data;
+$output = '';
+
+if(isset($smof_data['body_bg'])):
+	$output .= 'body{ background: '.$smof_data['body_bg'] .'; }';
+endif;
+
+echo $output;</pre></div></div>
+</div>
+
+<div class="post">
+<h2><a name="php2"></a>Themes Option Using Functions</h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_php snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_variable">$box_options</span> <span class="sh_symbol">=</span> <span class="sh_function">pukka_fp_box_settings</span><span class="sh_symbol">();</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_comment">//add_image_size('thumb-content', 615, 9999, false); // single page</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">add_image_size</span><span class="sh_symbol">(</span><span class="sh_string">'thumb-brick-big'</span><span class="sh_symbol">,</span> <span class="sh_variable">$box_options</span><span class="sh_symbol">[</span><span class="sh_string">'big_img_width'</span><span class="sh_symbol">],</span> <span class="sh_variable">$box_options</span><span class="sh_symbol">[</span><span class="sh_string">'big_img_height'</span><span class="sh_symbol">],</span> true<span class="sh_symbol">);</span> <span class="sh_comment">// big brick</span></li><li><span class="sh_symbol">--</span></li><li><span class="sh_function">add_action</span><span class="sh_symbol">(</span><span class="sh_string">'init'</span><span class="sh_symbol">,</span> <span class="sh_string">'pyre_init'</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">function</span> <span class="sh_function">pyre_init</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">global</span> <span class="sh_variable">$data</span><span class="sh_symbol">;</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">register_post_type</span><span class="sh_symbol">(</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_string">'avada_portfolio'</span><span class="sh_symbol">,</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">array</span><span class="sh_symbol">(</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_string">'labels'</span> <span class="sh_symbol">=&gt;</span> <span class="sh_keyword">array</span><span class="sh_symbol">(</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_string">'name'</span> <span class="sh_symbol">=&gt;</span> <span class="sh_string">'Portfolio'</span><span class="sh_symbol">,</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_string">'singular_name'</span> <span class="sh_symbol">=&gt;</span> <span class="sh_string">'Portfolio'</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">),</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_string">'public'</span> <span class="sh_symbol">=&gt;</span> true<span class="sh_symbol">,</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_string">'has_archive'</span> <span class="sh_symbol">=&gt;</span> true<span class="sh_symbol">,</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_string">'rewrite'</span> <span class="sh_symbol">=&gt;</span> <span class="sh_keyword">array</span><span class="sh_symbol">(</span><span class="sh_string">'slug'</span> <span class="sh_symbol">=&gt;</span> <span class="sh_variable">$data</span><span class="sh_symbol">[</span><span class="sh_string">'portfolio_slug'</span><span class="sh_symbol">]),</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_string">'supports'</span> <span class="sh_symbol">=&gt;</span> <span class="sh_keyword">array</span><span class="sh_symbol">(</span><span class="sh_string">'title'</span><span class="sh_symbol">,</span> <span class="sh_string">'editor'</span><span class="sh_symbol">,</span> <span class="sh_string">'thumbnail'</span><span class="sh_symbol">,</span><span class="sh_string">'comments'</span><span class="sh_symbol">),</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_string">'can_export'</span> <span class="sh_symbol">=&gt;</span> true<span class="sh_symbol">,</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">)</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_symbol">);</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">$box_options = pukka_fp_box_settings();
+	//add_image_size('thumb-content', 615, 9999, false); // single page
+	add_image_size('thumb-brick-big', $box_options['big_img_width'], $box_options['big_img_height'], true); // big brick
+--
+add_action('init', 'pyre_init');
+function pyre_init() {
+	global $data;
+	register_post_type(
+		'avada_portfolio',
+		array(
+			'labels' =&gt; array(
+				'name' =&gt; 'Portfolio',
+				'singular_name' =&gt; 'Portfolio'
+			),
+			'public' =&gt; true,
+			'has_archive' =&gt; true,
+			'rewrite' =&gt; array('slug' =&gt; $data['portfolio_slug']),
+			'supports' =&gt; array('title', 'editor', 'thumbnail','comments'),
+			'can_export' =&gt; true,
+		)
+	);</pre></div></div>
+</div>
+
+<div class="post">
+<h2><a name="title"></a>Dynamic title</h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_php snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_keyword">function</span> <span class="sh_function">dynamic_title</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><li>  <span class="sh_keyword">if</span> <span class="sh_symbol">(</span><span class="sh_function">is_home</span><span class="sh_symbol">())</span> <span class="sh_cbracket">{</span></li><li>    <span class="sh_keyword">if</span> <span class="sh_symbol">(</span><span class="sh_function">get_option</span><span class="sh_symbol">(</span><span class="sh_string">'page_for_posts'</span><span class="sh_symbol">,</span> true<span class="sh_symbol">))</span> <span class="sh_cbracket">{</span></li><li>      <span class="sh_keyword">return</span> <span class="sh_function">get_the_title</span><span class="sh_symbol">(</span><span class="sh_function">get_option</span><span class="sh_symbol">(</span><span class="sh_string">'page_for_posts'</span><span class="sh_symbol">,</span> true<span class="sh_symbol">));</span></li><li>    <span class="sh_cbracket">}</span> <span class="sh_keyword">else</span> <span class="sh_cbracket">{</span></li><li>      <span class="sh_keyword">return</span> <span class="sh_function">get_bloginfo</span><span class="sh_symbol">(</span><span class="sh_string">'name'</span><span class="sh_symbol">);</span></li><li>    <span class="sh_cbracket">}</span></li><li>  <span class="sh_cbracket">}</span> <span class="sh_keyword">elseif</span> <span class="sh_symbol">(</span><span class="sh_function">is_archive</span><span class="sh_symbol">())</span> <span class="sh_cbracket">{</span></li><li>    <span class="sh_variable">$term</span> <span class="sh_symbol">=</span> <span class="sh_function">get_term_by</span><span class="sh_symbol">(</span><span class="sh_string">'slug'</span><span class="sh_symbol">,</span> <span class="sh_function">get_query_var</span><span class="sh_symbol">(</span><span class="sh_string">'term'</span><span class="sh_symbol">),</span> <span class="sh_function">get_query_var</span><span class="sh_symbol">(</span><span class="sh_string">'taxonomy'</span><span class="sh_symbol">));</span></li><li>    <span class="sh_keyword">if</span> <span class="sh_symbol">(</span><span class="sh_variable">$term</span><span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>      <span class="sh_keyword">return</span> <span class="sh_function">apply_filters</span><span class="sh_symbol">(</span><span class="sh_string">'single_term_title'</span><span class="sh_symbol">,</span> <span class="sh_variable">$term</span><span class="sh_symbol">-&gt;</span>name<span class="sh_symbol">);</span></li><li>    <span class="sh_cbracket">}</span> <span class="sh_keyword">elseif</span> <span class="sh_symbol">(</span><span class="sh_function">is_post_type_archive</span><span class="sh_symbol">())</span> <span class="sh_cbracket">{</span></li><li>      <span class="sh_keyword">return</span> <span class="sh_function">apply_filters</span><span class="sh_symbol">(</span><span class="sh_string">'the_title'</span><span class="sh_symbol">,</span> <span class="sh_function">get_queried_object</span><span class="sh_symbol">()-&gt;</span>labels<span class="sh_symbol">-&gt;</span>name<span class="sh_symbol">);</span></li><li>    <span class="sh_cbracket">}</span> <span class="sh_keyword">elseif</span> <span class="sh_symbol">(</span><span class="sh_function">is_day</span><span class="sh_symbol">())</span> <span class="sh_cbracket">{</span></li><li>      <span class="sh_keyword">return</span> <span class="sh_function">sprintf</span><span class="sh_symbol">(</span><span class="sh_function">__</span><span class="sh_symbol">(</span><span class="sh_string">'Daily Archives: %s'</span><span class="sh_symbol">,</span> <span class="sh_string">'rm2334'</span><span class="sh_symbol">),</span> <span class="sh_function">get_the_date</span><span class="sh_symbol">());</span></li><li>    <span class="sh_cbracket">}</span> <span class="sh_keyword">elseif</span> <span class="sh_symbol">(</span><span class="sh_function">is_month</span><span class="sh_symbol">())</span> <span class="sh_cbracket">{</span></li><li>      <span class="sh_keyword">return</span> <span class="sh_function">sprintf</span><span class="sh_symbol">(</span><span class="sh_function">__</span><span class="sh_symbol">(</span><span class="sh_string">'Monthly Archives: %s'</span><span class="sh_symbol">,</span> <span class="sh_string">'rm2334'</span><span class="sh_symbol">),</span> <span class="sh_function">get_the_date</span><span class="sh_symbol">(</span><span class="sh_string">'F Y'</span><span class="sh_symbol">));</span></li><li>    <span class="sh_cbracket">}</span> <span class="sh_keyword">elseif</span> <span class="sh_symbol">(</span><span class="sh_function">is_year</span><span class="sh_symbol">())</span> <span class="sh_cbracket">{</span></li><li>      <span class="sh_keyword">return</span> <span class="sh_function">sprintf</span><span class="sh_symbol">(</span><span class="sh_function">__</span><span class="sh_symbol">(</span><span class="sh_string">'Yearly Archives: %s'</span><span class="sh_symbol">,</span> <span class="sh_string">'rm2334'</span><span class="sh_symbol">),</span> <span class="sh_function">get_the_date</span><span class="sh_symbol">(</span><span class="sh_string">'Y'</span><span class="sh_symbol">));</span></li><li>    <span class="sh_cbracket">}</span> <span class="sh_keyword">elseif</span> <span class="sh_symbol">(</span><span class="sh_function">is_author</span><span class="sh_symbol">())</span> <span class="sh_cbracket">{</span></li><li>      <span class="sh_variable">$author</span> <span class="sh_symbol">=</span> <span class="sh_function">get_queried_object</span><span class="sh_symbol">();</span></li><li>      <span class="sh_keyword">return</span> <span class="sh_function">sprintf</span><span class="sh_symbol">(</span><span class="sh_function">__</span><span class="sh_symbol">(</span><span class="sh_string">'Author Archives: %s'</span><span class="sh_symbol">,</span> <span class="sh_string">'rm2334'</span><span class="sh_symbol">),</span> <span class="sh_variable">$author</span><span class="sh_symbol">-&gt;</span>display_name<span class="sh_symbol">);</span></li><li>    <span class="sh_cbracket">}</span> <span class="sh_keyword">else</span> <span class="sh_cbracket">{</span></li><li>      <span class="sh_keyword">return</span> <span class="sh_function">single_cat_title</span><span class="sh_symbol">(</span><span class="sh_string">''</span><span class="sh_symbol">,</span> false<span class="sh_symbol">);</span></li><li>    <span class="sh_cbracket">}</span></li><li>  <span class="sh_cbracket">}</span> <span class="sh_keyword">elseif</span> <span class="sh_symbol">(</span><span class="sh_function">is_search</span><span class="sh_symbol">())</span> <span class="sh_cbracket">{</span></li><li>    <span class="sh_keyword">return</span> <span class="sh_function">sprintf</span><span class="sh_symbol">(</span><span class="sh_function">__</span><span class="sh_symbol">(</span><span class="sh_string">'Search Results for %s'</span><span class="sh_symbol">,</span> <span class="sh_string">'rm2334'</span><span class="sh_symbol">),</span> <span class="sh_function">get_search_query</span><span class="sh_symbol">());</span></li><li>  <span class="sh_cbracket">}</span> <span class="sh_keyword">elseif</span> <span class="sh_symbol">(</span><span class="sh_function">is_404</span><span class="sh_symbol">())</span> <span class="sh_cbracket">{</span></li><li>    <span class="sh_keyword">return</span> <span class="sh_function">__</span><span class="sh_symbol">(</span><span class="sh_string">'Not Found'</span><span class="sh_symbol">,</span> <span class="sh_string">'rm2334'</span><span class="sh_symbol">);</span></li><li>  <span class="sh_cbracket">}</span> <span class="sh_keyword">else</span> <span class="sh_cbracket">{</span></li><li>    <span class="sh_keyword">return</span> <span class="sh_function">get_the_title</span><span class="sh_symbol">();</span></li><li>  <span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">function dynamic_title() {
+  if (is_home()) {
+    if (get_option('page_for_posts', true)) {
+      return get_the_title(get_option('page_for_posts', true));
+    } else {
+      return get_bloginfo('name');
+    }
+  } elseif (is_archive()) {
+    $term = get_term_by('slug', get_query_var('term'), get_query_var('taxonomy'));
+    if ($term) {
+      return apply_filters('single_term_title', $term-&gt;name);
+    } elseif (is_post_type_archive()) {
+      return apply_filters('the_title', get_queried_object()-&gt;labels-&gt;name);
+    } elseif (is_day()) {
+      return sprintf(__('Daily Archives: %s', 'rm2334'), get_the_date());
+    } elseif (is_month()) {
+      return sprintf(__('Monthly Archives: %s', 'rm2334'), get_the_date('F Y'));
+    } elseif (is_year()) {
+      return sprintf(__('Yearly Archives: %s', 'rm2334'), get_the_date('Y'));
+    } elseif (is_author()) {
+      $author = get_queried_object();
+      return sprintf(__('Author Archives: %s', 'rm2334'), $author-&gt;display_name);
+    } else {
+      return single_cat_title('', false);
+    }
+  } elseif (is_search()) {
+    return sprintf(__('Search Results for %s', 'rm2334'), get_search_query());
+  } elseif (is_404()) {
+    return __('Not Found', 'rm2334');
+  } else {
+    return get_the_title();
+  }
+}</pre></div></div>
+</div>
+
+<div class="post">
+<h2><a name="multi"></a>Multi Dropdown</h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_php snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_symbol">&lt;?php</span> <span class="sh_variable">$video_source</span> <span class="sh_symbol">=</span> <span class="sh_function">rwmb_meta</span><span class="sh_symbol">(</span> <span class="sh_string">'cookingwp_video_source'</span> <span class="sh_symbol">);</span> <span class="sh_symbol">?&gt;</span></li><li><span class="sh_symbol">&lt;?php</span> <span class="sh_variable">$video</span> <span class="sh_symbol">=</span> <span class="sh_function">rwmb_meta</span><span class="sh_symbol">(</span> <span class="sh_string">'cookingwp_video'</span> <span class="sh_symbol">);</span> <span class="sh_symbol">?&gt;</span></li><li></li><li><span class="sh_symbol">&lt;?php</span> <span class="sh_keyword">if</span><span class="sh_symbol">(</span><span class="sh_variable">$video_source</span> <span class="sh_symbol">==</span> <span class="sh_number">1</span><span class="sh_symbol">):</span> <span class="sh_symbol">?&gt;</span></li><li>    <span class="sh_symbol">&lt;?php</span> <span class="sh_keyword">echo</span> <span class="sh_function">rwmb_meta</span><span class="sh_symbol">(</span> <span class="sh_string">'cookingwp_video'</span> <span class="sh_symbol">);</span> <span class="sh_symbol">?&gt;</span></li><li><span class="sh_symbol">&lt;?php</span> <span class="sh_keyword">elseif</span> <span class="sh_symbol">(</span><span class="sh_variable">$video_source</span> <span class="sh_symbol">==</span> <span class="sh_number">2</span><span class="sh_symbol">):</span> <span class="sh_symbol">?&gt;</span></li><li>    <span class="sh_symbol">&lt;?php</span> <span class="sh_keyword">echo</span> <span class="sh_string">''</span><span class="sh_symbol">.</span><span class="sh_variable">$video</span><span class="sh_symbol">.</span><span class="sh_string">''</span><span class="sh_symbol">;</span> <span class="sh_symbol">?&gt;</span></li><li><span class="sh_symbol">&lt;?php</span> <span class="sh_keyword">elseif</span> <span class="sh_symbol">(</span><span class="sh_variable">$video_source</span> <span class="sh_symbol">==</span> <span class="sh_number">3</span><span class="sh_symbol">):</span> <span class="sh_symbol">?&gt;</span></li><li>    <span class="sh_symbol">&lt;?php</span> <span class="sh_keyword">echo</span> <span class="sh_string">''</span><span class="sh_symbol">.</span><span class="sh_variable">$video</span><span class="sh_symbol">.</span><span class="sh_string">''</span><span class="sh_symbol">;</span> <span class="sh_symbol">?&gt;</span></li><li><span class="sh_symbol">&lt;?php</span> <span class="sh_keyword">endif</span><span class="sh_symbol">;</span> <span class="sh_symbol">?&gt;</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">&lt;?php $video_source = rwmb_meta( 'cookingwp_video_source' ); ?&gt;
+&lt;?php $video = rwmb_meta( 'cookingwp_video' ); ?&gt;
+
+&lt;?php if($video_source == 1): ?&gt;
+    &lt;?php echo rwmb_meta( 'cookingwp_video' ); ?&gt;
+&lt;?php elseif ($video_source == 2): ?&gt;
+    &lt;?php echo ''.$video.''; ?&gt;
+&lt;?php elseif ($video_source == 3): ?&gt;
+    &lt;?php echo ''.$video.''; ?&gt;
+&lt;?php endif; ?&gt;</pre></div></div>
+</div>
+
+<div class="post">
+<h2><a name="htaccess"></a>.htaccess</h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_html snippet-formatted sh_sourceCode"><ol class="snippet-num"><li>// .htaccess</li><li>User-agent: *</li><li>Disallow: /feed/</li><li>Disallow: /trackback/</li><li>Disallow: /wp-admin/</li><li>Disallow: /wp-content/</li><li>Disallow: /wp-includes/</li><li>Disallow: /xmlrpc.php</li><li>Disallow: /wp-</li><li>Allow: /wp-content/uploads/</li><li>Sitemap: http://example.com/sitemap.xml</li><li></li><li>User-agent: *</li><li></li><li>Disallow: /feed/</li><li>Disallow: /cgi-bin/</li><li>Disallow: /wp-admin/</li><li>Disallow: /wp-content/</li><li>Disallow: /wp-includes/</li><li>Disallow: /trackback/</li><li>Disallow: /xmlrpc.php</li><li>Disallow: ?wptheme=</li><li>Disallow: /blackhole/</li><li>Disallow: /transfer/</li><li>Disallow: /tweets/</li><li>Disallow: /mint/</li><li></li><li>Allow: /tag/mint/</li><li>Allow: /tag/feed/</li><li>Allow: /wp-content/online/</li><li></li><li>Sitemap: http://perishablepress.com/sitemap-perish.xml</li><li>Sitemap: http://perishablepress.com/sitemap-press.xml</li><li></li><li>User-agent: ia_archiver</li><li>Disallow: /</li><li></li><li>User-agent: *</li><li>Disallow: /mint/</li><li>Disallow: /labs/</li><li>Disallow: /*/wp-*</li><li>Disallow: /*/feed/*</li><li>Disallow: /*/*?s=*</li><li>Disallow: /*/*.js$</li><li>Disallow: /*/*.inc$</li><li>Disallow: /transfer/</li><li>Disallow: /*/cgi-bin/*</li><li>Disallow: /*/blackhole/*</li><li>Disallow: /*/trackback/*</li><li>Disallow: /*/xmlrpc.php</li><li>Allow: /*/20*/wp-*</li><li>Allow: /press/feed/$</li><li>Allow: /press/tag/feed/$</li><li>Allow: /*/wp-content/online/*</li><li>Sitemap: http://perishablepress.com/sitemap.xml</li><li></li><li>User-agent: ia_archiver</li><li>Disallow: /&nbsp;&nbsp;&nbsp;&nbsp;</li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">// .htaccess
+User-agent: *
+Disallow: /feed/
+Disallow: /trackback/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /xmlrpc.php
+Disallow: /wp-
+Allow: /wp-content/uploads/
+Sitemap: http://example.com/sitemap.xml
+
+User-agent: *
+
+Disallow: /feed/
+Disallow: /cgi-bin/
+Disallow: /wp-admin/
+Disallow: /wp-content/
+Disallow: /wp-includes/
+Disallow: /trackback/
+Disallow: /xmlrpc.php
+Disallow: ?wptheme=
+Disallow: /blackhole/
+Disallow: /transfer/
+Disallow: /tweets/
+Disallow: /mint/
+
+Allow: /tag/mint/
+Allow: /tag/feed/
+Allow: /wp-content/online/
+
+Sitemap: http://perishablepress.com/sitemap-perish.xml
+Sitemap: http://perishablepress.com/sitemap-press.xml
+
+User-agent: ia_archiver
+Disallow: /
+
+User-agent: *
+Disallow: /mint/
+Disallow: /labs/
+Disallow: /*/wp-*
+Disallow: /*/feed/*
+Disallow: /*/*?s=*
+Disallow: /*/*.js$
+Disallow: /*/*.inc$
+Disallow: /transfer/
+Disallow: /*/cgi-bin/*
+Disallow: /*/blackhole/*
+Disallow: /*/trackback/*
+Disallow: /*/xmlrpc.php
+Allow: /*/20*/wp-*
+Allow: /press/feed/$
+Allow: /press/tag/feed/$
+Allow: /*/wp-content/online/*
+Sitemap: http://perishablepress.com/sitemap.xml
+
+User-agent: ia_archiver
+Disallow: /	</pre></div></div>
+</div>
+
+<div class="post">
+<h2><a name=""></a></h2>
+
+</div>
+
+<div class="post">
+<h2><a name=""></a></h2>
+
+</div>
+
+<div class="post">
+<h2><a name=""></a></h2>
+
+</div>
+
+<div class="post">
+<h2><a name=""></a></h2>
+
+</div>
+</div> <!-- End: Content -->
+</div> <!-- End: Wrap -->
+<a href="#" class="scrollup left" style="display: block;">Scroll</a>
+<a href="#" class="scrollup right" style="display: block;">Scroll</a>
+<script src="js/jquery.min.js"></script>
+<script src="js/shi_jquery.min.js"></script>
+<script src="js/scroll.js"></script>
+</body>
+</html>

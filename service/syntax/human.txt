@@ -1,0 +1,19 @@
+/* TEAM */
+
+   Me: Thierry Koblentz
+   Contact: thierry.koblentz@gmail.com
+   Twitter: @thierrykoblentz
+   From: San Francisco, California, USA
+
+/* THANKS */
+
+   Snippet: http://www.steamdev.com/snippet/
+   SHJS: http://shjs.sourceforge.net/
+
+/* SITE */
+
+   Last update: 2013/11/06
+   Language: en-us
+   Doctype: HTML5
+   IDE: WebStorm, Fireworks
+   Library: JQuery

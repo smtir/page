@@ -1,0 +1,48 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Google Chrome Bangla Typing Extension"> 
+<meta name="description" content="Easy to open layout with Bijoy, Unijoy, Phonetic" />
+<meta name="keywords" content="Google Chrome Extension, Bangla Typing Extension, Google Chrome Bangla Typing Extension" />
+<meta name="author" CONTENT="Tawhidul Islam Rajib">
+<meta name="Language" CONTENT="Bangla">
+<meta http-EQUIV="CACHE-CONTROL" CONTENT="PUBLIC">
+<meta name="Copyright" CONTENT="rm2334">
+<meta name="Designer" CONTENT="Tawhidul Islam Rajib">
+<meta name="distribution" CONTENT="Global">
+<meta name="city" CONTENT="Dhaka">
+<meta name="country" CONTENT="Bangladesh">
+<style type="text/css" media="screen">
+a { text-decoration: none; }
+.credit { text-align: center; font-size: 16px; color: #3B9C9C; font-family: SolaimanLipi; padding: 5px; text-decoration: none; }
+.head { color: #3B9C9C; text-align: center; margin-top: 5px; font-size: 23px; font-family: SolaimanLipi; }
+.layout { color: #1589FF; font-size: 19px; font-family: SolaimanLipi; text-align: center; }
+.text { background: #fff; color: #307D7E; padding:2px; -moz-border-radius: 9px; -khtml-border-radius: 9px; -webkit-border-radius: 9px; border-radius: 9px; border: 3px solid #048BB7; width: 380px; height: 195px; float: center; font-size: 15px; font-family: Tahoma, SolaimanLipi; }
+.input { color: #1589FF;  font-size: 18px; font-weight: bold; text-align: center; }
+</style>
+</head>
+<title>Type Bangla</title>
+</head>
+<body>
+<div style="margin-left: 7px; margin-right: 7px; width: 95%; float: center; ">
+
+<h2 class="head">গুগোল ক্রোম বাংলা টাইপিং</h2>
+<p class="layout">যে কোন একটি লেআউট সিলেক্ট করে টাইপ করুন</p>
+<p align="center"><textarea class="text" cols="90%" rows="10" tabindex="4" onkeypress="return KeyBoardPress(event);" onkeydown="return KeyBoardDown(event);" placeholder="এখানে টাইপ করুন......"></textarea></p>
+		
+		<script src="layout.js"></script>
+		<script src="common.js"></script>
+		<script src="main.js"></script>
+
+<p class="input">
+<input checked="checked" name="KeyboardLayoutOption" onclick="return KeyboardLayoutOptionClick(event);" value="English" type="radio"> English 
+<input name="KeyboardLayoutOption" onclick="return KeyboardLayoutOptionClick(event);" value="Bijoy" type="radio"><span style=""> Bijoy </span> 
+<input name="KeyboardLayoutOption" onclick="return KeyboardLayoutOptionClick(event);" phonetic="" value="Phonetic" type="radio"> Phonetic 
+<input type="hidden" name="KeyboardLayoutOption" onclick="return KeyboardLayoutOptionClick(event);" value="Avro" type="radio">  
+<input name="KeyboardLayoutOption" onclick="return KeyboardLayoutOptionClick(event);" value="Unijoy" type="radio"> Unijoy
+</p>
+<p class="credit">তৈরী করেছেন: <a href="http://www.rm2334.com">তাওহিদুল ইসলাম</a> </br>ফন্ট ষ্ট্রিং: মাহবুব মোর্শেদ ও অরুপ কামাল</p>
+</div>
+</body>
+</html>
