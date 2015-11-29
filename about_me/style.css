@@ -9,7 +9,7 @@ body {
   @include align-content(center);
 }
 a {
-
+    color: #0099e5;
 }
 #wrap {
 	width: 70%;
@@ -22,8 +22,7 @@ a {
 }
 h2.title:before {
     position: relative;
-    left: -75px;
-    /*top: 30px;*/
+    left: -60px;
     font-family: FontAwesome;
     font-size: 35px;
     content: "\f21b";
@@ -36,22 +35,64 @@ h2.title {
     font-size: 30px;
     text-transform: uppercase;
     line-height: 10px;
+    margin: 20px 0 10px 0;
+    padding: 0;
 }
 p.desig {
     text-transform: lowercase;
     padding-left: 10px;
     font-size: 18px;
+    margin: 0 0 0 50px;
 }
 .desc p {
-margin: 30px 40px 0 40px;
+    margin: 30px 40px 0 40px;
     padding: 30px;
     font-weight: 400;
-    font-size: 15px;
+    font-size: 16px;
     font-family: Open Sans;
     color: #000;
-    background: #F3F3F3;
+    background: #E0E0E0;
     border: 1px solid #f3f3f3;
     border-radius: 8px;
+}
+.social_right {
+    float: right;
+}
+.social {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  margin: 15px 5px;
+  font-size: 28px;
+  text-align: center;
+  color: #0099E5;
+  background: #eee;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.social {
+   text-shadow: rgb(226, 226, 226) 1px 1px,
+    rgb(227, 227, 227) 2px 2px,
+    rgb(227, 227, 227) 3px 3px,
+    rgb(228, 228, 228) 4px 4px,
+    rgb(229, 229, 229) 5px 5px,
+    rgb(229, 229, 229) 6px 6px,
+    rgb(230, 230, 230) 7px 7px,
+    rgb(230, 230, 230) 8px 8px,
+    rgb(231, 231, 231) 9px 9px,
+    rgb(232, 232, 232) 10px 10px,
+    rgb(232, 232, 232) 11px 11px,
+    rgb(233, 233, 233) 12px 12px,
+    rgb(233, 233, 233) 13px 13px,
+    rgb(234, 234, 234) 14px 14px,
+    rgb(235, 235, 235) 15px 15px,
+    rgb(235, 235, 235) 16px 16px,
+    rgb(236, 236, 236) 17px 17px,
+    rgb(236, 236, 236) 18px 18px,
+    rgb(237, 237, 237) 19px 19px,
+    rgb(238, 238, 238) 20px 20px;
 }
 section#skills {
     margin: 0;
@@ -61,37 +102,18 @@ h2.skills {
     font-size: 30px;
     text-transform: uppercase;
     line-height: 10px;
+    margin: 10px 0 15px 0;
 }
 h2.skills:before {
     position: relative;
-    left: -75px;
+    left: -60px;
     /*top: 250px;*/
     font-family: FontAwesome;
     font-size: 35px;
     content: "\f0ad";
 }
-.pro {
-list-style: none;
-    clear: both;
-    margin: 25px 0 0 0;
-}
-.skill_back {
-    background: #0099e5;
-    padding: 5px 10px;
-    color: #fff;
-    margin: 5px 0;
-}
-.html5 {
-    width: 90%;
-}
-.css {
-    width: 80%;
-}
-.php {
-    width: 50%;
-}
-.wp {
-    width: 70%;
+.skill {
+  margin: 0 20px;
 }
 section#exp {
     margin: 0;
@@ -104,7 +126,7 @@ h2.exp {
 }
 h2.exp:before {
     position: relative;
-    left: -75px;
+    left: -60px;
     /*top: 465px;*/
     font-family: FontAwesome;
     font-size: 35px;
@@ -118,7 +140,7 @@ h2.exp:before {
 .exp_company .company_name {
 
 }
-.exp_company .company_name h2 {
+.exp_company .company_name h3 {
     line-height: 15px;
 }
 .exp_company .company_name p {
@@ -126,18 +148,19 @@ h2.exp:before {
     line-height: 15px;
     padding-left: 20px;
     font-weight: bold;
-    font-style: italic;
-    letter-spacing: 5px;
+    font-size: 16px;
 }
 .exp_company .company_name em {
     line-height: 15px;
     padding-left: 20px;
-    font-style: italic;
+    font-style: normal;
 }
 .exp_company .company_desc p {
     text-align: justify;
     margin: 0;
     padding: 0;
+    font-size: 16px;
+    font-family: Open Sans;
 }
 
 section#edu {
@@ -151,7 +174,7 @@ h2.edu {
 }
 h2.edu:before {
     position: relative;
-    left: -75px;
+    left: -60px;
     /*top: 465px;*/
     font-family: FontAwesome;
     font-size: 35px;
@@ -159,65 +182,33 @@ h2.edu:before {
 }
 .edu_institue {
     clear: both;
-    margin: 25px 0 0 0;
+    margin: 15px 0 0 0;
     padding: 5px 10px;
 }
 .edu_institue .edu_institue_name {
 
 }
-.edu_institue .edu_institue_name h2 {
-    line-height: 15px;
+.edu_institue .edu_institue_name h3 {
+    line-height: 25px;
 }
 .edu_institue .edu_institue_name p {
     margin: 0;
     line-height: 15px;
     padding-left: 20px;
     font-weight: bold;
-    font-style: italic;
-    letter-spacing: 5px;
+    font-size: 16px
 }
 .edu_institue .edu_institue_name em {
     line-height: 15px;
     padding-left: 20px;
-    font-style: italic;
+    font-style: normal;
 }
 .edu_institue .edu_institue_desc p {
     text-align: justify;
     margin: 0;
     padding: 0;
-}
-section#contact {
-    margin: 0;
-    padding: 10px;
-}
-h2.contact {
-    font-size: 30px;
-    text-transform: uppercase;
-    line-height: 10px;
-}
-h2.contact:before {
-    position: relative;
-    left: -75px;
-    /*top: 250px;*/
-    font-family: FontAwesome;
-    font-size: 35px;
-    content: "\f1d8";
-}
-.contact_form input[type="email"] , input[type="text"], input[type="tel"] {
-    width: 100%;
-    margin: 0px 0 5px -10px;
-    padding: 10px 15px;
-}
-.contact_form textarea {
-    width: 100%;
-    margin: 0px 0 5px -10px;
-    padding: 10px 15px;
-    height: 120px;
-}
-.contact_form button {
-    width: 100%;
-    margin: 0px 0 5px -10px;
-    padding: 10px 15px;
+    font-size: 16px;
+    font-family: Open Sans;
 }
 section#footer {
     margin: 0;
@@ -227,7 +218,49 @@ section#footer p {
 	margin: 0;
     padding: 0;
     text-align: center;
+    font-size: 12px;
+    color: #ccc;
 }
 section#footer p a {
 	color: #00405d;
 }
+.skill_single_progress {
+    clear: both;
+    margin: 5px 0 5px 40px;
+}
+.skill_progress_bar_container {
+  -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 100%;
+    background: #E0E0E0;
+}
+
+.skill_progress_bar {
+  -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    background: #0099E5;
+    padding: 5px 10px;
+    color: #fff;
+}
+.skill_contentx {
+
+}
+.skiLL_percent {
+  float: right;
+}
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
