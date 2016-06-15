@@ -1,0 +1,200 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<title>Keyboard Tester</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="generator" content="Quality Web Solutions Inc.">
+<meta name="keywords" content="Keyboard, test, tester, diagnostic" />
+<meta name="description" content="Test every key on your computer keyboard from within your browser for free." />
+
+<script type="text/javascript" language="JavaScript" 
+src="js/jquery.min.js"></script>
+<script type="text/javascript" language="JavaScript" 
+src="js/keyboardtester_min.js?2015"></script>
+<script type="text/javascript" language="JavaScript" 
+src="js/shortcut_min.js"></script>
+<link rel="stylesheet" type="text/css" href="keyboardtester_min.css?2015" media="screen" />
+<link rel="shortcut icon" href="images/icon.png" type="image/x-icon" />
+</head>
+
+<body>
+<div id="resetbutton">
+<form action="index.html" method="post">
+<div id="soundArea"><select name="sound" id="soundSelect">
+<option value="">(None)</option>
+<option value="click.wav" selected>Click</option><option value="josh.mp3">Josh</option></select> <span title="Patent Pending">Monophonic Key Sound Experience</span></div>
+<textarea id="testarea" cols="60" rows="2"></textarea> <input type="text" id="hidden_text" onfocus="go_testarea();"> <input type="submit" name="reset" value="Reset">
+</form>
+</div>
+<table id="keyboard">
+<tr class="key_small"><td><div class="key_row"><div id="key27" class="key_un">Esc</div>
+<div id="key112" class="key_un">F1</div>
+<div id="key113" class="key_un">F2</div>
+<div id="key114" class="key_un">F3</div>
+<div id="key115" class="key_un">F4</div>
+<div id="key116" class="key_un">F5</div>
+
+<div id="key117" class="key_un">F6</div>
+<div id="key118" class="key_un">F7</div>
+<div id="key119" class="key_un">F8</div>
+<div id="key120" class="key_un">F9</div>
+<div id="key121" class="key_un">F10</div>
+<div id="key122" class="key_un">F11</div>
+<div id="key123" class="key_un">F12</div>
+</div>
+
+</td><td><div class="key_row"><div id="key44" class="key_un">Prnt<br>Scrn</div>
+
+<div id="key145" class="key_un">Scroll<br>Lock</div>
+<div id="key19" class="key_un">Pause<br>&nbsp;</div>
+</div>
+
+</td></tr><tr><td rowspan="2"><div class="key_row"><div id="key192" class="key_un">~</div>
+<div id="key49" class="key_un">1</div>
+<div id="key50" class="key_un">2</div>
+<div id="key51" class="key_un">3</div>
+<div id="key52" class="key_un">4</div>
+<div id="key53" class="key_un">5</div>
+
+<div id="key54" class="key_un">6</div>
+<div id="key55" class="key_un">7</div>
+<div id="key56" class="key_un">8</div>
+<div id="key57" class="key_un">9</div>
+<div id="key48" class="key_un">0</div>
+<div id="key173" class="key_un">-</div>
+<div id="key61" class="key_un">+</div>
+<div id="key8" class="key_un">Bckspce</div>
+</div>
+
+<div class="key_row"><div id="key9" class="key_un">Tab</div>
+<div id="key81" class="key_un">Q</div>
+<div id="key87" class="key_un">W</div>
+<div id="key69" class="key_un">E</div>
+<div id="key82" class="key_un">R</div>
+<div id="key84" class="key_un">T</div>
+<div id="key89" class="key_un">Y</div>
+<div id="key85" class="key_un">U</div>
+
+<div id="key73" class="key_un">I</div>
+<div id="key79" class="key_un">O</div>
+<div id="key80" class="key_un">P</div>
+<div id="key219" class="key_un">{</div>
+<div id="key221" class="key_un">}</div>
+<div id="key220" class="key_un">\&nbsp;&nbsp;</div>
+</div>
+
+<div class="key_row"><div id="key20" class="key_un">Caps</div>
+<div id="key65" class="key_un">A</div>
+
+<div id="key83" class="key_un">S</div>
+<div id="key68" class="key_un">D</div>
+<div id="key70" class="key_un">F</div>
+<div id="key71" class="key_un">G</div>
+<div id="key72" class="key_un">H</div>
+<div id="key74" class="key_un">J</div>
+<div id="key75" class="key_un">K</div>
+<div id="key76" class="key_un">L</div>
+<div id="keycolon" class="key_un">;</div>
+
+<div id="key222" class="key_un">'</div>
+<div id="key13" class="key_un">Enter</div>
+</div>
+
+<div class="key_row"><div id="key16" class="key_un">Shift</div>
+<div id="key90" class="key_un">Z</div>
+<div id="key88" class="key_un">X</div>
+<div id="key67" class="key_un">C</div>
+<div id="key86" class="key_un">V</div>
+<div id="key66" class="key_un">B</div>
+
+<div id="key78" class="key_un">N</div>
+<div id="key77" class="key_un">M</div>
+<div id="key188" class="key_un">,</div>
+<div id="key190" class="key_un">.</div>
+<div id="key191" class="key_un">/</div>
+<div id="key16b" class="key_un">Shift</div>
+</div>
+
+<div class="key_row"><div id="key17" class="key_un">Ctrl</div>
+<div id="key91" class="key_un">Win</div>
+<div id="key18" class="key_un">Alt</div>
+<div id="key224" class="key_un">Com</div>
+<div id="key32" class="key_un">Spacebar</div>
+<div id="key224b" class="key_un">Com</div>
+
+<div id="key18b" class="key_un">Alt</div>
+<div id="key92" class="key_un">Win</div>
+<div id="key93" class="key_un">Sel</div>
+
+<div id="key17b" class="key_un">Ctrl</div>
+</div>
+
+</td><td class="key_small"><div class="key_row"><div id="key45" class="key_un">Insert</div>
+<div id="key36" class="key_un">Home</div>
+
+<div id="key33" class="key_un">PgUp&nbsp;</div>
+</div>
+
+<div class="key_row"><div id="key46" class="key_un">Delete</div>
+<div id="key35" class="key_un">End&nbsp;</div>
+<div id="key34" class="key_un">PgDwn</div>
+</div>
+
+</td><td rowspan="2">
+<table class="key_block">
+<tr>
+<td id="key144" class="key_small key_un">Num<br>Lck</td>
+<td id="key111" class="key_un">/</td>
+<td id="key106" class="key_un">*</td>
+
+<td id="key109b" class="key_un">-</td>
+</tr>
+
+<tr><td id="key103" class="key_un">7</td>
+<td id="key104" class="key_un">8</td>
+<td id="key105" class="key_un">9</td>
+<td id="key107b" class="key_un" rowspan="2">+</td>
+</tr>
+
+<tr><td id="key100" class="key_un">4</td>
+<td id="key101" class="key_un">5</td>
+<td id="key102" class="key_un">6</td>
+</tr>
+
+<tr><td id="key97" class="key_un">1</td>
+<td id="key98" class="key_un">2</td>
+<td id="key99" class="key_un">3</td>
+<td id="key13b" class="key_small key_un" rowspan="2">Entr</td>
+</tr>
+
+<tr><td id="key96" class="key_un" colspan="2">0</td>
+<td id="key110" class="key_un">.</td>
+</tr>
+</table>
+
+</td></tr>
+<tr><td align="center">
+<table class="key_block">
+<tr>
+<td class="blank">&nbsp;</td>
+<td id="key38" class="key_un">&uarr;</td>
+<td class="blank">&nbsp;</td>
+</tr>
+
+<tr>
+<td id="key37" class="key_un">&larr;</td>
+<td id="key40" class="key_un">&darr;</td>
+<td id="key39" class="key_un">&rarr;</td>
+</tr>
+</table>
+</td></tr>
+</table>
+
+<div class="label">Notes:</div>
+<ol id="notes"><li>To test numeric keypad be sure <span class="key_name">Num Lock</span> is ON.</li>
+<li>Tester cannot differentiate between duplicate keys (<span class="key_name">Shift, Ctrl, Alt, Enter</span>). Be sure to test both of each.</li>
+</ol>
+
+</body>
+</html>
