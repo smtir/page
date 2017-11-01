@@ -5,7 +5,7 @@
 	border-top-right-radius: 5px;
  }
 #navs li {
-	padding: 5px 0px 6px;
+	padding: 5px 0px 4px;
 	float: left;
 	position: relative;
 	list-style: none;
@@ -16,10 +16,10 @@
 #navs a {
 color: #FFF;
 text-decoration: none;
-padding: 10px 20px;
+padding: 7px 20px;
 font-family: "Fjalla One";
-font-size: 18px;
-line-height: 32px;
+font-size: 14px;
+line-height: 22px;
  }
 #navs a:hover {
  background: #000;
@@ -47,9 +47,9 @@ nav ul li:hover ul li a {
 display: none;
 margin: 0;
 padding: 0;
-width: 210px;
+width: 300px;
 position: absolute;
-top: 42px;
+top: 31px;
 left: 0px;
 background: #EDC715;
 float: left;
