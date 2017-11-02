@@ -16,7 +16,7 @@
 #navs a {
 color: #FFF;
 text-decoration: none;
-padding: 7px 20px;
+padding: 8px 20px;
 font-family: "Fjalla One";
 font-size: 14px;
 line-height: 22px;
@@ -68,7 +68,7 @@ display: block;
 }
 /* level 3+ list */
 #navs ul ul {
- left: 180px;
+ left: 300px;
  top: 0px;
 }
 

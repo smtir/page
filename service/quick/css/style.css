@@ -3,7 +3,7 @@
 body {
 color: #000;
 background: rgb(224, 224, 224);
-font-family: Tahoma, SolaimanLipi;
+font-family: 'Open Sans', sans-serif;
 }
 .wrap {
 width: 1100px;
@@ -31,7 +31,7 @@ border-bottom-right-radius: 5px;
 padding: 20px;
 }
 .content h2 {
-font-size: 25px;
+font-size: 18px;
 color: rgb(11, 85, 11);
 }
 .content p {
