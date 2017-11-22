@@ -143,7 +143,7 @@
 	</li>
 	<li><a href="#">Common</a>
 		<ul>
-			<li><a href="#wcf_css">CF7 Submission CSS</a></li>
+			<li><a href="#wcf_css">CF7 Validation CSS</a></li>
 		</ul>
 	</li>
 	<li><a href="#scode">Usefull</a></li>
@@ -2005,20 +2005,55 @@ input::-ms-input-placeholder {
 </div>
 
 <div class="post">
-<h2><a name="wcf_css">CF7 Submission CSS</a></h2>
-<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_css snippet-formatted sh_sourceCode"><ol class="snippet-num"><li>div<span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>mail<span class="sh_symbol">-</span>sent<span class="sh_symbol">-</span>ok <span class="sh_cbracket">{</span></li><li>    <span class="sh_property">border:</span> <span class="sh_value">none</span> !<span class="sh_value">important</span>;</li><li>    <span class="sh_property">color:</span> <span class="sh_string">#398f14</span> !<span class="sh_value">important</span>;</li><li>    <span class="sh_property">margin:</span> <span class="sh_value">0</span> !<span class="sh_value">important</span>;</li><li>    <span class="sh_property">padding:</span> <span class="sh_value">0</span> !<span class="sh_value">important</span>;</li><li>    <span class="sh_property">clear:</span> <span class="sh_value">both</span>;</li><li><span class="sh_cbracket">}</span></li><li>div<span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>validation<span class="sh_symbol">-</span>errors <span class="sh_cbracket">{</span></li><li>    <span class="sh_property">border:</span> <span class="sh_value">none</span> !<span class="sh_value">important</span>;</li><li>    <span class="sh_property">color:</span> <span class="sh_string">#f7e700</span> !<span class="sh_value">important</span>;</li><li>    <span class="sh_property">margin:</span> <span class="sh_value">0</span> !<span class="sh_value">important</span>;</li><li>    <span class="sh_property">padding:</span> <span class="sh_value">0</span> !<span class="sh_value">important</span>;</li><li>    <span class="sh_property">clear:</span> <span class="sh_value">both</span>;</li><li><span class="sh_cbracket">}</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">div.wpcf7-mail-sent-ok {
-    border: none !important;
-    color: #398f14 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    clear: both;
+<h2><a name="wcf_css">CF7 Validation CSS</a></h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_css snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>form<span class="sh_symbol">-</span>control<span class="sh_selector">.input.wpcf7</span><span class="sh_symbol">-</span>not<span class="sh_symbol">-</span>valid <span class="sh_cbracket">{</span></li><li>    <span class="sh_property">border:</span> <span class="sh_value">1px</span> <span class="sh_value">solid</span> <span class="sh_string">#ff0000</span> !<span class="sh_value">important</span>;</li><li><span class="sh_cbracket">}</span></li><li><span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>form <span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>response<span class="sh_symbol">-</span>output<span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>validation<span class="sh_symbol">-</span>errors <span class="sh_cbracket">{</span></li><li>    <span class="sh_property">color:</span> <span class="sh_string">#D8000C</span>;</li><li>    <span class="sh_property">background-color:</span> <span class="sh_string">#FFBABA</span>;</li><li>    <span class="sh_property">border:</span> <span class="sh_value">0</span>;</li><li>    <span class="sh_property">padding:</span> <span class="sh_value">2px</span>;</li><li>    <span class="sh_property">text-align:</span> <span class="sh_value">left</span>;</li><li>    <span class="sh_property">width:</span> <span class="sh_value">100%</span>;</li><li><span class="sh_cbracket">}</span></li><li>span<span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>not<span class="sh_symbol">-</span>valid<span class="sh_symbol">-</span>tip <span class="sh_cbracket">{</span></li><li>    <span class="sh_property">color:</span> <span class="sh_string">#D8000C</span>;</li><li>    <span class="sh_property">background-color:</span> <span class="sh_string">#FFBABA</span>;</li><li>    <span class="sh_property">text-align:</span> <span class="sh_value">left</span>;</li><li>    <span class="sh_property">border:</span> <span class="sh_value">0</span>;</li><li>    <span class="sh_property">padding:</span> <span class="sh_value">2px</span>;</li><li>    <span class="sh_property">width:</span> <span class="sh_value">100%</span>;</li><li>    <span class="sh_property">margin-bottom:</span> <span class="sh_value">-34px</span>;</li><li>    <span class="sh_property">margin-top:</span> <span class="sh_value">4px</span>;</li><li><span class="sh_cbracket">}</span></li><li><span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>form <span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>response<span class="sh_symbol">-</span>output<span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>mail<span class="sh_symbol">-</span>sent<span class="sh_symbol">-</span>ok <span class="sh_cbracket">{</span></li><li>    <span class="sh_property">color:</span> <span class="sh_string">#4F8A10</span>;</li><li>    <span class="sh_property">background-color:</span> <span class="sh_string">#DFF2BF</span>;</li><li>    <span class="sh_property">border:</span> <span class="sh_value">0</span>;</li><li>    <span class="sh_property">padding:</span> <span class="sh_value">2px</span>;</li><li>    <span class="sh_property">text-align:</span> <span class="sh_value">left</span>;</li><li>    <span class="sh_property">width:</span> <span class="sh_value">100%</span>;</li><li><span class="sh_cbracket">}</span></li><li>div<span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>mail<span class="sh_symbol">-</span>sent<span class="sh_symbol">-</span>ok<span class="sh_symbol">:</span>before<span class="sh_symbol">,</span>div<span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>validation<span class="sh_symbol">-</span>errors<span class="sh_symbol">:</span>before<span class="sh_symbol">,</span>span<span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>not<span class="sh_symbol">-</span>valid<span class="sh_symbol">-</span>tip<span class="sh_symbol">:</span>before <span class="sh_cbracket">{</span></li><li>    <span class="sh_property">font:</span> <span class="sh_value">26px</span>/<span class="sh_value">30px</span> <span class="sh_value">dashicons</span>;</li><li>    <span class="sh_property">margin-right:</span> <span class="sh_value">16px</span>;</li><li>    <span class="sh_property">vertical-align:</span> <span class="sh_value">middle</span>;</li><li><span class="sh_cbracket">}</span></li><li><span class="sh_comment">/* Dashicons Icon */</span></li><li>div<span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>mail<span class="sh_symbol">-</span>sent<span class="sh_symbol">-</span>ok<span class="sh_symbol">:</span>before <span class="sh_cbracket">{</span></li><li>    <span class="sh_property">content:</span> "\<span class="sh_value">f147</span>";</li><li><span class="sh_cbracket">}</span></li><li>div<span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>validation<span class="sh_symbol">-</span>errors<span class="sh_symbol">:</span>before<span class="sh_symbol">,</span>span<span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>not<span class="sh_symbol">-</span>valid<span class="sh_symbol">-</span>tip<span class="sh_symbol">:</span>before <span class="sh_cbracket">{</span></li><li>    <span class="sh_property">content:</span> "\<span class="sh_value">f158</span>";</li><li><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_comment">/* Font-Awesome Icon */</span></li><li>div<span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>mail<span class="sh_symbol">-</span>sent<span class="sh_symbol">-</span>ok<span class="sh_symbol">:</span>before <span class="sh_cbracket">{</span></li><li>    <span class="sh_property">content:</span>'\<span class="sh_value">f00c</span>';</li><li><span class="sh_cbracket">}</span></li><li>div<span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>validation<span class="sh_symbol">-</span>errors<span class="sh_symbol">:</span>before<span class="sh_symbol">,</span> span<span class="sh_selector">.wpcf7</span><span class="sh_symbol">-</span>not<span class="sh_symbol">-</span>valid<span class="sh_symbol">-</span>tip<span class="sh_symbol">:</span>before <span class="sh_cbracket">{</span></li><li>    <span class="sh_property">content:</span>'\<span class="sh_value">f057</span>';</li><li><span class="sh_cbracket">}</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">.wpcf7-form-control.input.wpcf7-not-valid {
+    border: 1px solid #ff0000 !important;
 }
-div.wpcf7-validation-errors {
-    border: none !important;
-    color: #f7e700 !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    clear: both;
+.wpcf7-form .wpcf7-response-output.wpcf7-validation-errors {
+    color: #D8000C;
+    background-color: #FFBABA;
+    border: 0;
+    padding: 2px;
+    text-align: left;
+    width: 100%;
+}
+span.wpcf7-not-valid-tip {
+    color: #D8000C;
+    background-color: #FFBABA;
+    text-align: left;
+    border: 0;
+    padding: 2px;
+    width: 100%;
+    margin-bottom: -34px;
+    margin-top: 4px;
+}
+.wpcf7-form .wpcf7-response-output.wpcf7-mail-sent-ok {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    border: 0;
+    padding: 2px;
+    text-align: left;
+    width: 100%;
+}
+div.wpcf7-mail-sent-ok:before,div.wpcf7-validation-errors:before,span.wpcf7-not-valid-tip:before {
+    font: 26px/30px dashicons;
+    margin-right: 16px;
+    vertical-align: middle;
+}
+/* Dashicons Icon */
+div.wpcf7-mail-sent-ok:before {
+    content: "\f147";
+}
+div.wpcf7-validation-errors:before,span.wpcf7-not-valid-tip:before {
+    content: "\f158";
+}
+
+/* Font-Awesome Icon */
+div.wpcf7-mail-sent-ok:before {
+    content:'\f00c';
+}
+div.wpcf7-validation-errors:before, span.wpcf7-not-valid-tip:before {
+    content:'\f057';
 }</pre></div></div>
 </div>
 
