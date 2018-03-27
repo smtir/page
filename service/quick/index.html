@@ -42,6 +42,7 @@
 			<li><a href="#">Custom</a>
 				<ul>
 					<li><a href="#thumbnail">Custom Thumbnail</a></li>
+					<li><a href="#woo_email">Email Validation</a></li>
 				</ul>
 			</li>
 		</ul>
@@ -2058,8 +2059,29 @@ div.wpcf7-validation-errors:before, span.wpcf7-not-valid-tip:before {
 </div>
 
 <div class="post">
-<h2><a name=""></a></h2>
+<h2><a name="woo_email">Woocomerce Email Validation</a></h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_php snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_comment">// Woocomerce Checkout Email Validation</span></li><li><span class="sh_function">add_action</span><span class="sh_symbol">(</span><span class="sh_string">'woocommerce_checkout_process'</span><span class="sh_symbol">,</span> <span class="sh_string">'checkout_email_valid'</span><span class="sh_symbol">);</span></li><li><span class="sh_keyword">function</span> <span class="sh_function">checkout_email_valid</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span> </li><li>  &nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_variable">$email</span> <span class="sh_symbol">=</span> <span class="sh_function">checkout_input_sanitize</span><span class="sh_symbol">(</span><span class="sh_variable">$_POST</span><span class="sh_symbol">[</span><span class="sh_string">"billing_m"</span><span class="sh_symbol">]);</span></li><li>  &nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_variable">$email2</span> <span class="sh_symbol">=</span> <span class="sh_function">checkout_input_sanitize</span><span class="sh_symbol">(</span><span class="sh_variable">$_POST</span><span class="sh_symbol">[</span><span class="sh_string">"billing_m2"</span><span class="sh_symbol">]);</span></li><li>  &nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_comment">// check if botm e-mail address is filled</span></li><li>    <span class="sh_keyword">if</span><span class="sh_symbol">(</span><span class="sh_variable">$email</span> <span class="sh_symbol">!==</span> <span class="sh_variable">$email2</span><span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">wc_add_notice</span><span class="sh_symbol">(</span> <span class="sh_function">__</span><span class="sh_symbol">(</span> <span class="sh_string">'Both email address need to be same.'</span> <span class="sh_symbol">),</span> <span class="sh_string">'error'</span> <span class="sh_symbol">);</span></li><li>    <span class="sh_cbracket">}</span> </li><li>    <span class="sh_comment">// check if e-mail address is well-formed</span></li><li>  &nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_keyword">if</span><span class="sh_symbol">(!</span><span class="sh_function">filter_var</span><span class="sh_symbol">(</span><span class="sh_variable">$email</span><span class="sh_symbol">,</span> FILTER_VALIDATE_EMAIL<span class="sh_symbol">)</span> <span class="sh_symbol">||</span> <span class="sh_symbol">!</span><span class="sh_function">filter_var</span><span class="sh_symbol">(</span><span class="sh_variable">$email2</span><span class="sh_symbol">,</span> FILTER_VALIDATE_EMAIL<span class="sh_symbol">))</span> <span class="sh_cbracket">{</span></li><li>    &nbsp;&nbsp;&nbsp;&nbsp;<span class="sh_function">wc_add_notice</span><span class="sh_symbol">(</span> <span class="sh_function">__</span><span class="sh_symbol">(</span> <span class="sh_string">'Email Address is not valid.'</span> <span class="sh_symbol">),</span> <span class="sh_string">'error'</span> <span class="sh_symbol">);</span></li><li>    <span class="sh_cbracket">}</span></li><li><span class="sh_cbracket">}</span></li><li></li><li><span class="sh_comment">// Woocomerce Checkout Input Sanitize</span></li><li><span class="sh_keyword">function</span> <span class="sh_function">checkout_input_sanitize</span><span class="sh_symbol">(</span><span class="sh_variable">$data</span><span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>  <span class="sh_variable">$data</span> <span class="sh_symbol">=</span> <span class="sh_function">trim</span><span class="sh_symbol">(</span><span class="sh_variable">$data</span><span class="sh_symbol">);</span></li><li>  <span class="sh_variable">$data</span> <span class="sh_symbol">=</span> <span class="sh_function">stripslashes</span><span class="sh_symbol">(</span><span class="sh_variable">$data</span><span class="sh_symbol">);</span></li><li>  <span class="sh_variable">$data</span> <span class="sh_symbol">=</span> <span class="sh_function">htmlspecialchars</span><span class="sh_symbol">(</span><span class="sh_variable">$data</span><span class="sh_symbol">);</span></li><li>  <span class="sh_keyword">return</span> <span class="sh_variable">$data</span><span class="sh_symbol">;</span></li><li><span class="sh_cbracket">}</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">// Woocomerce Checkout Email Validation
+add_action('woocommerce_checkout_process', 'checkout_email_valid');
+function checkout_email_valid() { 
+  	$email = checkout_input_sanitize($_POST["billing_m"]);
+  	$email2 = checkout_input_sanitize($_POST["billing_m2"]);
+  	// check if botm e-mail address is filled
+    if($email !== $email2) {
+			wc_add_notice( __( 'Both email address need to be same.' ), 'error' );
+    } 
+    // check if e-mail address is well-formed
+  	if(!filter_var($email, FILTER_VALIDATE_EMAIL) || !filter_var($email2, FILTER_VALIDATE_EMAIL)) {
+    	wc_add_notice( __( 'Email Address is not valid.' ), 'error' );
+    }
+}
 
+// Woocomerce Checkout Input Sanitize
+function checkout_input_sanitize($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}</pre></div></div>
 </div>
 
 <div class="post">
