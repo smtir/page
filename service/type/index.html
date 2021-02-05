@@ -7,6 +7,7 @@ a { text-decoration: none; }
 .head { color: #3B9C9C; text-align: center; margin-top: 5px; font-size: 23px; font-family: SolaimanLipi; }
 .text { background: #fff; color: #307D7E; padding:2px; -moz-border-radius: 9px; -khtml-border-radius: 9px; -webkit-border-radius: 9px; border-radius: 9px; border: 3px solid #048BB7; width: 380px; height: 195px; float: center; font-size: 15px; font-family: Tahoma, SolaimanLipi; }
 .input { color: #1589FF;  font-size: 18px; font-weight: bold; text-align: center; }
+label,input {cursor: pointer;}
 </style>
 </head>
 <title>Type Bangla Online</title>
@@ -23,11 +24,11 @@ a { text-decoration: none; }
 		<script src="main.js"></script>
 
 <p class="input">
-<input checked="checked" name="KeyboardLayoutOption" onclick="return KeyboardLayoutOptionClick(event);" value="English" type="radio"> English 
-<input name="KeyboardLayoutOption" onclick="return KeyboardLayoutOptionClick(event);" value="Bijoy" type="radio"><span style=""> Bijoy </span> 
-<input name="KeyboardLayoutOption" onclick="return KeyboardLayoutOptionClick(event);" phonetic="" value="Phonetic" type="radio"> Phonetic 
+<input checked="checked" name="KeyboardLayoutOption" onclick="return KeyboardLayoutOptionClick(event);" value="English" type="radio" id="english"><label for="english">English</label> 
+<input name="KeyboardLayoutOption" onclick="return KeyboardLayoutOptionClick(event);" value="Unijoy" type="radio" id="unijoy"><label for="unijoy">Unijoy</label> 
+<input name="KeyboardLayoutOption" onclick="return KeyboardLayoutOptionClick(event);" value="Bijoy" type="radio" id="bijoy"><label for="bijoy">Bijoy</label>
+<input name="KeyboardLayoutOption" onclick="return KeyboardLayoutOptionClick(event);" phonetic="" value="Phonetic" type="radio" id="phonetic"><label for="phonetic">Phonetic</label> 
 <input type="hidden" name="KeyboardLayoutOption" onclick="return KeyboardLayoutOptionClick(event);" value="Avro" type="radio">  
-<input name="KeyboardLayoutOption" onclick="return KeyboardLayoutOptionClick(event);" value="Unijoy" type="radio"> Unijoy
 </p>
 <p class="credit">ফন্ট ষ্ট্রিং: মাহবুব মোর্শেদ ও অরুপ কামাল</p>
 </div>
