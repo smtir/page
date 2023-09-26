@@ -8,6 +8,7 @@ font-family: 'Open Sans', sans-serif;
 .wrap {
 width: 1100px;
 margin: 0 auto;
+overflow: hidden;
 }
 .head {
 margin: 10px 0 10px 0;
