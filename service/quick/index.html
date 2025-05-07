@@ -147,6 +147,7 @@
 		<ul>
 			<li><a href="#create_user">Create New User</a></li>
 			<li><a href="#change_pass">User Pass Change</a></li>
+			<li><a href="#change_role">User Role Change</a></li>
 			<li><a href="#wcf_css">CF7 Validation CSS</a></li>
 		</ul>
 	</li>
@@ -2080,6 +2081,40 @@ add_filter( 'woocommerce_continue_shopping_redirect', 'shop_redirect_url' );</pr
     file_put_contents($flag_file, 'done');
 }
 add_action('init', 'reset_specific_user_password_once');</pre></div></div>
+</div>
+
+<div class="post">
+<h2><a name="change_role">Change User Role</a></h2>
+<div class="snippet-container"><div class="sh_default snippet-wrap"><div class="snippet-menu sh_sourceCode"><a class="snippet-window sh_url" href="#">pop-up</a><a class="snippet-text sh_url" href="#">text</a></div><pre class="shi_pre sh_php snippet-formatted sh_sourceCode"><ol class="snippet-num"><li><span class="sh_keyword">function</span> <span class="sh_function">reset_and_promote_user_once</span><span class="sh_symbol">()</span> <span class="sh_cbracket">{</span></li><li>    <span class="sh_variable">$username</span>     <span class="sh_symbol">=</span> <span class="sh_string">'existinguser'</span><span class="sh_symbol">;</span> <span class="sh_comment">// 🔁 Change to the target username</span></li><li>    <span class="sh_variable">$new_password</span> <span class="sh_symbol">=</span> <span class="sh_string">'NewStrongPassword123!'</span><span class="sh_symbol">;</span> <span class="sh_comment">// 🔁 Change to the desired password</span></li><li>    <span class="sh_variable">$log_file</span>     <span class="sh_symbol">=</span> WP_CONTENT_DIR <span class="sh_symbol">.</span> <span class="sh_string">'/user-reset-log.txt'</span><span class="sh_symbol">;</span></li><li>    <span class="sh_variable">$flag_file</span>    <span class="sh_symbol">=</span> WP_CONTENT_DIR <span class="sh_symbol">.</span> <span class="sh_string">'/.user_reset_flag'</span><span class="sh_symbol">;</span></li><li></li><li>    <span class="sh_keyword">if</span> <span class="sh_symbol">(</span><span class="sh_function">file_exists</span><span class="sh_symbol">(</span><span class="sh_variable">$flag_file</span><span class="sh_symbol">))</span> <span class="sh_cbracket">{</span></li><li>        <span class="sh_keyword">return</span><span class="sh_symbol">;</span> <span class="sh_comment">// Already ran once</span></li><li>    <span class="sh_cbracket">}</span></li><li></li><li>    <span class="sh_variable">$user</span> <span class="sh_symbol">=</span> <span class="sh_function">get_user_by</span><span class="sh_symbol">(</span><span class="sh_string">'login'</span><span class="sh_symbol">,</span> <span class="sh_variable">$username</span><span class="sh_symbol">);</span></li><li>    <span class="sh_keyword">if</span> <span class="sh_symbol">(</span><span class="sh_variable">$user</span><span class="sh_symbol">)</span> <span class="sh_cbracket">{</span></li><li>        <span class="sh_comment">// Reset password</span></li><li>        <span class="sh_function">wp_set_password</span><span class="sh_symbol">(</span><span class="sh_variable">$new_password</span><span class="sh_symbol">,</span> <span class="sh_variable">$user</span><span class="sh_symbol">-&gt;</span>ID<span class="sh_symbol">);</span></li><li></li><li>        <span class="sh_comment">// Promote to administrator</span></li><li>        <span class="sh_variable">$user</span><span class="sh_symbol">-&gt;</span><span class="sh_function">set_role</span><span class="sh_symbol">(</span><span class="sh_string">'administrator'</span><span class="sh_symbol">);</span></li><li></li><li>        <span class="sh_comment">// Log success</span></li><li>        <span class="sh_function">file_put_contents</span><span class="sh_symbol">(</span><span class="sh_variable">$log_file</span><span class="sh_symbol">,</span> <span class="sh_string">"✅ ["</span><span class="sh_symbol">.</span><span class="sh_function">date</span><span class="sh_symbol">(</span><span class="sh_string">'Y-m-d H:i:s'</span><span class="sh_symbol">).</span><span class="sh_string">"] User '{$username}' password reset and promoted to administrator.\n"</span><span class="sh_symbol">,</span> FILE_APPEND<span class="sh_symbol">);</span></li><li>    <span class="sh_cbracket">}</span> <span class="sh_keyword">else</span> <span class="sh_cbracket">{</span></li><li>        <span class="sh_comment">// Log failure</span></li><li>        <span class="sh_function">file_put_contents</span><span class="sh_symbol">(</span><span class="sh_variable">$log_file</span><span class="sh_symbol">,</span> <span class="sh_string">"❌ ["</span><span class="sh_symbol">.</span><span class="sh_function">date</span><span class="sh_symbol">(</span><span class="sh_string">'Y-m-d H:i:s'</span><span class="sh_symbol">).</span><span class="sh_string">"] Failed: user '{$username}' not found.\n"</span><span class="sh_symbol">,</span> FILE_APPEND<span class="sh_symbol">);</span></li><li>    <span class="sh_cbracket">}</span></li><li></li><li>    <span class="sh_comment">// Create the flag file</span></li><li>    <span class="sh_function">file_put_contents</span><span class="sh_symbol">(</span><span class="sh_variable">$flag_file</span><span class="sh_symbol">,</span> <span class="sh_string">'done'</span><span class="sh_symbol">);</span></li><li><span class="sh_cbracket">}</span></li><li><span class="sh_function">add_action</span><span class="sh_symbol">(</span><span class="sh_string">'init'</span><span class="sh_symbol">,</span> <span class="sh_string">'reset_and_promote_user_once'</span><span class="sh_symbol">);</span></li></ol></pre><pre class="snippet-textonly sh_sourceCode" style="display:none;" tabindex="0" contenteditable="">function reset_and_promote_user_once() {
+    $username     = 'existinguser'; // 🔁 Change to the target username
+    $new_password = 'NewStrongPassword123!'; // 🔁 Change to the desired password
+    $log_file     = WP_CONTENT_DIR . '/user-reset-log.txt';
+    $flag_file    = WP_CONTENT_DIR . '/.user_reset_flag';
+
+    if (file_exists($flag_file)) {
+        return; // Already ran once
+    }
+
+    $user = get_user_by('login', $username);
+    if ($user) {
+        // Reset password
+        wp_set_password($new_password, $user-&gt;ID);
+
+        // Promote to administrator
+        $user-&gt;set_role('administrator');
+
+        // Log success
+        file_put_contents($log_file, "✅ [".date('Y-m-d H:i:s')."] User '{$username}' password reset and promoted to administrator.\n", FILE_APPEND);
+    } else {
+        // Log failure
+        file_put_contents($log_file, "❌ [".date('Y-m-d H:i:s')."] Failed: user '{$username}' not found.\n", FILE_APPEND);
+    }
+
+    // Create the flag file
+    file_put_contents($flag_file, 'done');
+}
+add_action('init', 'reset_and_promote_user_once');
+</pre></div></div>
 </div>
 
 <div class="post">
